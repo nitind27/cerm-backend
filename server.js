@@ -24,8 +24,8 @@ const app = express();
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   process.env.LOCALHOST_URL,
-  "http://localhost:3000",
-  // "https://cerm-frontend.vercel.app", 
+  // "http://localhost:3000",1
+  "https://cerm-frontend.vercel.app", 
 ];
 
 app.use(cors({
