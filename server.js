@@ -14,7 +14,7 @@ const inDataRoutes = require('./routes/in.routes');
 const invoiceRoutes = require('./routes/invoice.routes');
 const db = require('./config/db');
 const path = require('path');
-  
+
 // const subcategoryRoutes = require('./routes/subcategory.routes');
 
 dotenv.config();
@@ -22,16 +22,16 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  process.env.FRONTEND_URL, 
+  process.env.FRONTEND_URL,
   process.env.LOCALHOST_URL,
-  // "http://localhost:3000",
-    "https://cerm-frontend.vercel.app", 
+  "http://localhost:3000",
+  // "https://cerm-frontend.vercel.app", 
 ];
 
 app.use(cors({
-    origin: allowedOrigins,
-    credentials: true
-  }));
+  origin: allowedOrigins,
+  credentials: true
+}));
 app.use(express.json());
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -43,7 +43,7 @@ app.use('/api/categories', categoryRoutes);
 // app.use("/uploads", express.static("uploads"));
 app.use("/api/subcategories", subcategoryRoutes);
 app.use("/api/rents", rentRoutes);
-app.use("/api/stockdata",newStockRoutes);
+app.use("/api/stockdata", newStockRoutes);
 app.use("/api/deposits", depositRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/customers", customerRoutes);
@@ -54,5 +54,5 @@ app.use('/api/invoice', invoiceRoutes);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });
